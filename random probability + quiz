@@ -1,0 +1,21 @@
+import random 
+def roll():
+    min_value = 1
+    max_value = 8
+    roll = random.randint(min_value,max_value)
+    return roll
+    while True:
+        mainquestion = ("How many players want to play the game(1 to 5) ?")
+        if mainquestion.isdigit():
+            mainquestion = int(mainquestion)
+            if 1 <= main question <= 5
+            break
+            else:
+                print ("Input is invalid. Please put another response. ")
+                print (mainquestion)
+                max_score = 50
+mainquestion2 = input("Congrats you have now received the minimum or the maximum no. The quiz will start now! qn (1) = Where is this project being made at?: ")
+if mainquestion2 != "Github":
+            quit()
+else:
+    print("Welcome to the quiz :-) ")

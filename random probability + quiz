@@ -14,8 +14,21 @@ def roll():
                 print ("Input is invalid. Please put another response. ")
                 print (mainquestion)
                 max_score = 50
-mainquestion2 = input("Congrats you have now received the minimum or the maximum no. The quiz will start now! qn (1) = Where is this project being made at?: ")
-if mainquestion2 != "Github":
+                print("Congrats your entry for the minnimum number was right.")
+stringx.lower = input("Are you ready?")
+if stringx.lower != "No":
             quit()
 else:
     print("Welcome to the quiz :-) ")
+while True:
+play = input('Do you want to play ? ').lower()
+if play == 'yes':
+print ("Welcome again!")
+else:
+    quit ()
+    question = input({question_no}. What does CPU stand for? ').lower()
+    if question == 'central processing unit':
+        score +=1
+        print('correct! you got 1 point')
+-> Print all the qns
+--> print " + str("score") + " , to print the total score

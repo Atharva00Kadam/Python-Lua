@@ -26,9 +26,16 @@ if play == 'yes':
 print ("Welcome again!")
 else:
     quit ()
-    question = input({question_no}. What does CPU stand for? ').lower()
-    if question == 'central processing unit':
-        score +=1
-        print('correct! you got 1 point')
--> Print all the qns
+    question = input("What does CPU stand for? ").lower()
+    if question != 'central processing unit':
+        score -=1
+        print('Wrong! you got 1 point')
+else:
+     if question == 'central processing unit':
+        score += 1
+        print("You got the answer right!") 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Last Program ending:-
 --> print " + str("score") + " , to print the total score
+--> For every correct answer = 1 point
+    For every wrong answer = -1 point

@@ -1,0 +1,7 @@
+print("Welcome to my portfolio!")
+print("How are you? ")
+answer = input('Please type in your response ')
+if answer == ('Good'):
+break 
+else:
+    print("Why aren't you good today?")

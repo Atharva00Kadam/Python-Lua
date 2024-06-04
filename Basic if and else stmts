@@ -16,4 +16,14 @@ for i in range(rows):
         print (symbol, end "")
 print()
 --------------------------------------------------------------------------------
-##
+## Inserting URLS
+language_code = "es"
+
+# Subjects can be math, science, computing, or humanities.
+subject = "computing"
+
+url = "https://" + language_code + ".github.com/" + subject
+
+print("Navigate to the page below!")
+print(url)
+

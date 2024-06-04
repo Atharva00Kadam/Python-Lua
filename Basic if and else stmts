@@ -1,3 +1,4 @@
+## Else/if/elif practise-
 print("Welcome to my portfolio!")
 print("How are you? ")
 answer = input('Please type in your response: ')
@@ -5,4 +6,14 @@ if answer != ('Good'):
     print("Thank you!")
 else:
     print("How can I make your day better? :) ")
-
+--------------------------------------------------------------------------------
+## iternation/nesting-
+rows = int(input("How many rows are needed?: ")
+columns = int(input("How many columns are needed?: ")
+symbol = input("Enter a symbol")
+for i in range(rows):
+    for j in tange(colums):
+        print (symbol, end "")
+print()
+--------------------------------------------------------------------------------
+##

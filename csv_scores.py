@@ -7,75 +7,74 @@ import os
 def read_csv(fname):
     dict_encapsulated_list = []
 
+    if not os.path.exists(fname):
+        raise FileNotFoundError(f'Error occurred when opening {fname} to read')
+    
     try:
-        f = open(fname, 'r')
-        lines = f.readlines()
-        
-        if not lines:
-            f.close()
-            return None
-        
-        for line in lines:
-            parts = line.strip().split(',')
+        with open(fname, 'r') as f:
+            lines = f.readlines()
             
-            if len(parts) < 12:
-                continue
-
-            try:
-                name = parts[0].strip()
-                section = parts[1].strip()
-
-                scores = []
-                for i in range(2, 12):
-                    score = float(parts[i].strip())
-                    scores.append(score)
+            if not lines:
+                return None
+            
+            for line in lines:
+                parts = line.strip().split(',', maxsplit=11)
                 
-                if scores:
+                if len(parts) != 12:
+                    continue
+
+                try:
+                    name = parts[0].strip()
+                    section = parts[1].strip()
+
+                    scores = []
+                    for i in range(2, 12):
+                        score = float(parts[i].strip())
+                        scores.append(score)
+                    
                     total_score = sum(scores)
-                    average_score = total_score / len(scores)
+                    average_score = total_score / 10
                     rounded_average = round(average_score, 3)
-                else:
-                    rounded_average = 0.0
-
-            except ValueError:
-                continue
-            
-            student_dict = {}
-            student_dict['name'] = name
-            student_dict['section'] = section
-            student_dict['scores'] = scores
-            student_dict['average'] = rounded_average
-            
-            dict_encapsulated_list.append(student_dict)
-
-        f.close()
+                
+                except ValueError:
+                    continue
+                
+                student_dict = {
+                    'name': name,
+                    'section': section,
+                    'scores': scores,
+                    'average': rounded_average
+                }
+                
+                dict_encapsulated_list.append(student_dict)
         
         return dict_encapsulated_list
 
-    except:
-        if not os.path.exists(fname):
-            raise IsADirectoryError(f'Error occurred when opening {fname} to read')
-        return None
-        
     except IsADirectoryError:
-        print(f"Error occurred when opening {fname} to read")
-
+        raise IsADirectoryError(f'Error occurred when opening {fname} to read')
 
 def write_csv(fname: str, student_data: list):
+    if not student_data:
+        return
+
     try:
-        dict2 = {}
-        f = open(f"{student_data}.txt", 'w')
-        g = open(f"{fname}", 'w')
-        k = f.read()
-        new_file = g.write(k)
-        for i in new_file:
-            i['average'] = ''
-        return new_file
-    except:
-        if not os.path.exists(fname):
-            raise IsADirectoryError(f'Error occurred when opening {fname} to read')
-            
-    
-    
+        with open(fname, 'w') as f:
+            for student_dict in student_data:
+                line_parts = [
+                    student_dict['name'],
+                    student_dict['section']
+                ]
+
+                score_strings = [str(score) for score in student_dict['scores']]
+                line_parts.extend(score_strings)
+
+                csv_line = ",".join(line_parts) + '\n'
+
+                f.write(csv_line)
+
+     except:
+         print(f"Error occurred when opening {fname} to read")
+
+
   
 

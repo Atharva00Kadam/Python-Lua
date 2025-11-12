@@ -2,8 +2,6 @@
 # Email    : aakadam@umass.edu
 # Spire ID : 35090900
 
-import os
-
 def read_csv(fname):
     dict_encapsulated_list = []
 
@@ -56,6 +54,26 @@ def read_csv(fname):
         if not os.path.exists(fname):
             raise IsADirectoryError(f'Error occurred when opening {fname} to read')
         return None
-      
+        
+    except IsADirectoryError:
+        print(f"Error occurred when opening {fname} to read")
+
+
+def write_csv(fname: str, student_data: list):
+    try:
+        dict2 = {}
+        f = open(f"{student_data}.txt", 'w')
+        g = open(f"{fname}", 'w')
+        k = f.read()
+        new_file = g.write(k)
+        for i in new_file:
+            i['average'] = ''
+        return new_file
+    except:
+        if not os.path.exists(fname):
+            raise IsADirectoryError(f'Error occurred when opening {fname} to read')
+            
+    
+    
   
 

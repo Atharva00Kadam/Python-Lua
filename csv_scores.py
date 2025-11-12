@@ -2,6 +2,8 @@
 # Email    : aakadam@umass.edu
 # Spire ID : 35090900
 
+import os
+
 def read_csv(fname):
     dict_encapsulated_list = []
 

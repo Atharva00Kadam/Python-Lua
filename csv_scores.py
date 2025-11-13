@@ -3,7 +3,7 @@
 # Spire ID : 35090900
 
 import os
-
+import csv
 def read_csv(fname):
     dict_encapsulated_list = []
 

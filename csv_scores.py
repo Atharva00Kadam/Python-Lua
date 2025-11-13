@@ -2,8 +2,9 @@
 # Email    : aakadam@umass.edu
 # Spire ID : 35090900
 
-import os
 import csv
+import os
+
 def read_csv(fname):
     dict_encapsulated_list = []
 
@@ -53,28 +54,4 @@ def read_csv(fname):
     except IsADirectoryError:
         raise IsADirectoryError(f'Error occurred when opening {fname} to read')
 
-def write_csv(fname: str, student_data: list):
-    if not student_data:
-        return
-
-    try:
-        with open(fname, 'w') as f:
-            for student_dict in student_data:
-                line_parts = [
-                    student_dict['name'],
-                    student_dict['section']
-                ]
-
-                score_strings = [str(score) for score in student_dict['scores']]
-                line_parts.extend(score_strings)
-
-                csv_line = ",".join(line_parts) + '\n'
-
-                f.write(csv_line)
-
-     except:
-         print(f"Error occurred when opening {fname} to read")
-
-
-  
 
